@@ -15,3 +15,13 @@ TEST(testDuplicateNumberInArray, test3) {
   int arr[] = {2, 3, 1, 0, 4, 6, 5, 7};
   ASSERT_EQ(find_duplicated_number_in_array(arr, sizeof(arr)/sizeof(arr[0])), -1);
 }
+
+TEST(testDuplicateNumberInArray, test4) {
+  int arr[] = {2, 3, 1, 0, 2, 5};
+  ASSERT_EQ(find_duplicated_number_in_array_with_cycles(arr, sizeof(arr)/sizeof(arr[0])), 2);
+}
+
+TEST(testDuplicateNumberInArray, test5) {
+  int arr[] = {2, 3, 1, 0, 4, 2, 5, 6};
+  ASSERT_EQ(find_duplicated_number_in_array_with_cycles(arr, sizeof(arr)/sizeof(arr[0])), 2);
+}
