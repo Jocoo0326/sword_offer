@@ -1,7 +1,9 @@
 cmake_minimum_required (VERSION 3.0)
 
 project (sword_offer)
+set (CMAKE_CXX_STANDARD 11)
 
+add_subdirectory (/Users/jocoo/workspace/sword_offer/googletest gtest)
 add_subdirectory (src)
 
 option(PACKAGE_TESTS "Build the tests" ON)
