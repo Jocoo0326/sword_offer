@@ -8,22 +8,22 @@ int add(Node **pHead, int value)
   if (pHead == NULL) {
     return -1;
   }
-  Node *prev = NULL, *next = *pHead;
-  while (next) {
-    prev = next;
-    next = next->pNext;
-  }
+
   Node *node = (Node *) malloc(sizeof(Node));
-  if (node < 0) {
-    perror("create node failed");
+  node->data = value;
+  node->pNext = NULL;
+  if (!node) {
+    perror("failed to malloc memory for new node");
     return -1;
   }
-  node->data = value;
-  if (prev == NULL) {
-    node->pNext = NULL;
+  if (*pHead == NULL) {
     *pHead = node;
   } else {
-    prev->pNext = node;
+    Node *p = *pHead;
+    while (p->pNext != NULL) {
+      p = p->pNext;
+    }
+    p->pNext = node;
   }
   return 0;
 }
